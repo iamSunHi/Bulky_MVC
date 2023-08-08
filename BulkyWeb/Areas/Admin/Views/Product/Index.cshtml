@@ -8,8 +8,8 @@
 			</div>
 		</div>
 	</div>
-	<div class="card-body p-4">
-		<div class="row py-3 d-flex align-items-center">
+	<div class="card-body">
+		<div class="row d-flex align-items-center pb-3">
 			<div class="text-end">
 				<a class="btn btn-primary" asp-action="Create">
 					New Product
@@ -26,6 +26,15 @@
 					<th>
 						Description
 					</th>
+					<th>
+						ISBN
+					</th>
+					<th>
+						Author
+					</th>
+					<th>
+						Price
+					</th>
 					<th></th>
 				</tr>
 			</thead>
@@ -35,6 +44,9 @@
 					<tr>
 						<td>@item.Title</td>
 						<td>@item.Description</td>
+						<td>@item.ISBN</td>
+						<td>@item.Author</td>
+						<td>@item.ListPrice</td>
 						<td>
 							<div class="btn-group d-flex" role="group">
 								<a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary mx-2">

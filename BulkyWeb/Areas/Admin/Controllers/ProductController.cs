@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BulkyBookWeb.Areas.Admin.Controllers
 {
+	[Area("Admin")]
 	public class ProductController : Controller
 	{
 		private readonly IUnitOfWork _unitOfWork;
@@ -18,8 +19,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
 			IEnumerable<Product> ProductList = _unitOfWork.ProductRepository.GetAll();
 			return View(ProductList);
 		}
-
-		[HttpPost]
+		
 		public IActionResult Create()
 		{
 			return View();

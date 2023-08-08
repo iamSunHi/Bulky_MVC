@@ -1,10 +1,10 @@
-﻿@model Category
+﻿@model Product
 
 <div class="card shadow border-0 mt-4">
 	<div class="card-header bg-primary bg-gradient m-lg-0 py-3">
 		<div class="row">
 			<div class="col-12 text-center">
-				<h2 class="text-white py-2">Create Category</h2>
+				<h2 class="text-white py-2">Create Product</h2>
 			</div>
 		</div>
 	</div>
@@ -12,14 +12,43 @@
 		<form method="post" class="row">
 			<div class="border p-3 mt-4">
 				<div class="form-floating py-2 col-12">
-					<input asp-for=Name class="form-control border-0 shadow-sm" placeholder="Category Name" />
-					<label asp-for=Name class="ms-2"></label>
-					<span asp-validation-for="Name" class="text-danger"></span>
+					<input asp-for=Title class="form-control border-0 shadow-sm" placeholder="Title" />
+					<label asp-for=Title class="ms-2"></label>
+					<span asp-validation-for="Title" class="text-danger"></span>
 				</div>
 				<div class="form-floating py-2 col-12">
-					<input asp-for=DisplayOrder class="form-control border-0 shadow-sm" placeholder="Display Order" />
-					<label asp-for=DisplayOrder class="ms-2"></label>
-					<span asp-validation-for="DisplayOrder" class="text-danger"></span>
+					<textarea asp-for=Description class="form-control border-0 shadow-sm" placeholder="Description"></textarea>
+					<label asp-for=Description class="ms-2"></label>
+					<span asp-validation-for="Description" class="text-danger"></span>
+				</div>
+				<div class="form-floating py-2 col-12">
+					<input asp-for=ISBN class="form-control border-0 shadow-sm" placeholder="ISBN" />
+					<label asp-for=ISBN class="ms-2"></label>
+					<span asp-validation-for="ISBN" class="text-danger"></span>
+				</div>
+				<div class="form-floating py-2 col-12">
+					<input asp-for=Author class="form-control border-0 shadow-sm" placeholder="Author" />
+					<label asp-for=Author class="ms-2"></label>
+					<span asp-validation-for="Author" class="text-danger"></span>
+				</div>
+				<div class="form-floating py-2 col-12">
+					<input asp-for=ListPrice class="form-control border-0 shadow-sm" placeholder="List Price" />
+					<label asp-for=ListPrice class="ms-2"></label>
+				</div>
+				<div class="form-floating py-2 col-12">
+					<input asp-for=Price class="form-control border-0 shadow-sm" placeholder="List Price 1-50" />
+					<label asp-for=Price class="ms-2"></label>
+					<span asp-validation-for="Price" class="text-danger"></span>
+				</div>
+				<div class="form-floating py-2 col-12">
+					<input asp-for=Price50 class="form-control border-0 shadow-sm" placeholder="List Price 50-100" />
+					<label asp-for=Price50 class="ms-2"></label>
+					<span asp-validation-for="Price50" class="text-danger"></span>
+				</div>
+				<div class="form-floating py-2 col-12">
+					<input asp-for=Price100 class="form-control border-0 shadow-sm" placeholder="List Price 100+" />
+					<label asp-for=Price50 class="ms-2"></label>
+					<span asp-validation-for="Price50" class="text-danger"></span>
 				</div>
 				<div class="row mt-3">
 					<div class="col-md-6 col-12">
@@ -37,7 +66,6 @@
 		</form>
 	</div>
 </div>
-
 
 @section Scripts {
 	@{

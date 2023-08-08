@@ -20,7 +20,6 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
             return View(CategoryList);
         }
 
-        [HttpGet]
         public IActionResult Create()
         {
             return View();
