@@ -1,10 +1,10 @@
-﻿@model IEnumerable<Category>
+﻿@model IEnumerable<Product>
 
 <div class="card shadow border-0 mt-4">
 	<div class="card-header bg-primary bg-gradient m-lg-0 py-3">
 		<div class="row">
 			<div class="col-12 text-center">
-				<h2 class="text-white py-2">Category List</h2>
+				<h2 class="text-white py-2">Product List</h2>
 			</div>
 		</div>
 	</div>
@@ -12,7 +12,7 @@
 		<div class="row py-3 d-flex align-items-center">
 			<div class="text-end">
 				<a class="btn btn-primary" asp-action="Create">
-					New Category
+					New Product
 					<i class="bi bi-plus-circle"></i>
 				</a>
 			</div>
@@ -21,20 +21,20 @@
 			<thead>
 				<tr>
 					<th>
-						Category Name
+						Title
 					</th>
 					<th>
-						Display Order
+						Description
 					</th>
 					<th></th>
 				</tr>
 			</thead>
 			<tbody>
-				@foreach (var item in Model.OrderBy(item => item.DisplayOrder))
+				@foreach (var item in Model.OrderBy(item => item.Title))
 				{
 					<tr>
-						<td>@item.Name</td>
-						<td>@item.DisplayOrder</td>
+						<td>@item.Title</td>
+						<td>@item.Description</td>
 						<td>
 							<div class="btn-group d-flex" role="group">
 								<a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary mx-2">
