@@ -20,10 +20,10 @@ function loadDataTable() {
                 data: 'id',
                 render: (data) => {
                     return `<div class="btn-group d-flex" role="group">
-								<a class="btn btn-primary d-flex mx-2 rounded" href="/Admin/Product/Upsert/${data}">
+								<a class="btn btn-primary d-flex justify-content-center mx-2 rounded" href="/Admin/Product/Upsert/${data}">
 									Edit <i class="bi bi-pencil-square mx-1"></i>
 								</a>
-								<a class="btn btn-danger d-flex mx-2 rounded" onClick=Delete('/Admin/Product/Delete/${data}')>
+								<a class="btn btn-danger d-flex justify-content-center mx-2 rounded" onClick=Delete('/Admin/Product/Delete/${data}')>
 									Delete <i class="bi bi-trash-fill mx-1"></i>
 								</a>
 							</div>`;
