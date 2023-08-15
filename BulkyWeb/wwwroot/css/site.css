@@ -16,3 +16,13 @@ html {
 body {
     margin-bottom: 60px;
 }
+
+.divider-text:before,
+.divider-text::after {
+    content: "";
+    color: #fff;
+    flex: 1;
+    border-top: 1px solid #555;
+    margin: auto .25rem;
+    box-shadow: 0 -2px;
+}
