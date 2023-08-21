@@ -13,6 +13,7 @@ namespace BulkyBook.DataAccess.Data
         }
 
         public DbSet<Category> Categories { get; set; }
+		public DbSet<CoverType> CoverTypes { get; set; }
         public DbSet<Product> Products { get; set; }
 		public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 		public DbSet<Company> Companies { get; set; }
@@ -40,7 +41,8 @@ namespace BulkyBook.DataAccess.Data
 					Price50 = 85,
 					Price100 = 80,
 					CategoryId = 3,
-					ImageUrl = ""
+					ImageUrl = "",
+					CoverTypeId = 1,
 				},
 				new Product
 				{
@@ -54,8 +56,9 @@ namespace BulkyBook.DataAccess.Data
 					Price50 = 25,
 					Price100 = 20,
 					CategoryId = 1,
-					ImageUrl = ""
-				},
+					ImageUrl = "",
+                    CoverTypeId = 4,
+                },
 				new Product
 				{
 					Id = 3,
@@ -68,8 +71,9 @@ namespace BulkyBook.DataAccess.Data
 					Price50 = 40,
 					Price100 = 35,
 					CategoryId = 1,
-					ImageUrl = ""
-				},
+					ImageUrl = "",
+                    CoverTypeId = 7,
+                },
 				new Product
 				{
 					Id = 4,
@@ -82,8 +86,9 @@ namespace BulkyBook.DataAccess.Data
 					Price50 = 60,
 					Price100 = 55,
 					CategoryId = 2,
-					ImageUrl = ""
-				},
+					ImageUrl = "",
+                    CoverTypeId = 11,
+                },
 				new Product
 				{
 					Id = 5,
@@ -96,8 +101,9 @@ namespace BulkyBook.DataAccess.Data
 					Price50 = 25,
 					Price100 = 20,
 					CategoryId = 2,
-					ImageUrl = ""
-				},
+					ImageUrl = "",
+                    CoverTypeId = 6,
+                },
 				new Product
 				{
 					Id = 6,
@@ -110,8 +116,9 @@ namespace BulkyBook.DataAccess.Data
 					Price50 = 22,
 					Price100 = 20,
 					CategoryId = 3,
-					ImageUrl = ""
-				}
+					ImageUrl = "",
+                    CoverTypeId = 2,
+                }
 			);
 		}
     }

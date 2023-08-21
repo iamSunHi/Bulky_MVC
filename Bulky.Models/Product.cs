@@ -14,6 +14,7 @@ namespace BulkyBook.Models
         [ValidateNever]
         public string ImageUrl { get; set; } = null!;
         [Display(Name = "List Price"), Range(1, 1000)]
+
 		public double ListPrice { get; set; }
 		[Display(Name = "List Price 1-50"), Range(1, 1000)]
 		public double Price { get; set; }
@@ -22,8 +23,14 @@ namespace BulkyBook.Models
 		[Display(Name = "List Price 100+"), Range(1, 1000)]
 		public double Price100 { get; set; }
 
-		public int CategoryId { get; set; }
+        [Display(Name = "Category")]
+        public int CategoryId { get; set; }
 		[ValidateNever]
 		public Category Category { get; set; } = null!;
-	}
+
+        [Display(Name = "Cover Type")]
+        public int CoverTypeId { get; set; }
+        [ValidateNever]
+        public CoverType? CoverType { get; set; }
+    }
 }
