@@ -2,7 +2,7 @@
 	<div class="card-header bg-dark bg-gradient m-lg-0 py-3">
 		<div class="row">
 			<div class="col-12 text-center">
-				<h2 class="text-white py-2">Product List</h2>
+				<h2 class="text-white py-2">Company List</h2>
 			</div>
 		</div>
 	</div>
@@ -10,7 +10,7 @@
 		<div class="row d-flex align-items-center pb-3">
 			<div class="text-end">
 				<a class="btn btn-primary" asp-action="Upsert">
-					New Product
+					Create New Company
 					<i class="bi bi-plus-circle"></i>
 				</a>
 			</div>
@@ -19,22 +19,19 @@
 			<thead>
 				<tr>
 					<th>
-						Title
+						Name
 					</th>
 					<th>
-						ISBN
+						Address
 					</th>
 					<th>
-						Price
+						City
 					</th>
 					<th>
-						Author
+						State
 					</th>
 					<th>
-						Category
-					</th>
-					<th>
-						Cover Type
+						Phone Number
 					</th>
 					<th></th>
 				</tr>
@@ -44,6 +41,6 @@
 	</div>
 </div>
 
-@section Scripts {
-	<script src="~/js/product.js"></script>
+@section Scripts{
+	<script src="~/js/company.js"></script>
 }

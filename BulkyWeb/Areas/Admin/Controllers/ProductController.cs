@@ -27,8 +27,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
 
 		public IActionResult Index()
 		{
-			IEnumerable<Product> ProductList = _unitOfWork.ProductRepository.GetAll(includeProperties: "Category,CoverType");
-			return View(ProductList);
+			return View();
 		}
 		
 		public IActionResult Upsert(int? id)
@@ -141,7 +140,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
 			_unitOfWork.ProductRepository.Remove(productToBeDeleted);
 			_unitOfWork.Save();
 
-			return Json(new { success = true, message = "Delete successfull!" });
+			return Json(new { success = true, message = "Delete successful!" });
 		}
 		#endregion
 	}
