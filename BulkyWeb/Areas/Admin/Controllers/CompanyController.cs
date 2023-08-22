@@ -1,5 +1,8 @@
-﻿using BulkyBook.DataAccess.Repository.IRepository;
+﻿// Ignore Spelling: Upsert
+
+using BulkyBook.DataAccess.Repository.IRepository;
 using BulkyBook.Models;
+using BulkyBook.Models.ViewModels;
 using BulkyBook.Utility;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -8,7 +11,6 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
 {
 	[Area("Admin")]
 	[Authorize(Roles = StaticDetails.Role_Admin)]
-	/*[Authorize(Roles = StaticDetails.Role_Company)]*/
 	public class CompanyController : Controller
     {
 		private readonly IUnitOfWork _unitOfWork;
@@ -25,8 +27,42 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
             return View();
         }
 
-        #region API CALL
-        [HttpGet]
+        public IActionResult Upsert(int? id)
+        {
+            Company company = new();
+            if (id == null || id == 0)
+            {
+                return View(company);
+            }
+
+            company = _unitOfWork.CompanyRepository.Get(c => c.Id == id);
+            return View(company);
+        }
+        [HttpPost]
+		[ValidateAntiForgeryToken]
+		public IActionResult Upsert(Company company)
+        {
+            if (ModelState.IsValid)
+            {
+				if (company.Id == 0)
+				{
+					_unitOfWork.CompanyRepository.Add(company);
+					TempData["success"] = "Company created successfully!";
+				}
+				else
+				{
+					_unitOfWork.CompanyRepository.Update(company);
+					TempData["success"] = "Product updated successfully!";
+				}
+
+				_unitOfWork.Save();
+				return RedirectToAction("Index");
+			}
+            return View(company);
+        }
+
+		#region API CALL
+		[HttpGet]
         public IActionResult GetAll()
         {
             IEnumerable<Company> CompanyList = _unitOfWork.CompanyRepository.GetAll();

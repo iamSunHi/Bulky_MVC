@@ -55,6 +55,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
 			}
 		}
 		[HttpPost]
+		[ValidateAntiForgeryToken]
 		public IActionResult Upsert(ProductVM productVM, IFormFile? file)
 		{
 			if (ModelState.IsValid)
