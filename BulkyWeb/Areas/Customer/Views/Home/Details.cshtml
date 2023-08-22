@@ -26,13 +26,23 @@
                     <div class="col-12 col-lg-6 offset-lg-1">
 
                         <div class="col-12 col-md-6 pb-4">
-                            <span class="badge">@Model.Category.Name</span>
+                            <span class="badge rounded-pill text-bg-dark">@Model.Category.Name</span>
                         </div>
                         <div class="row ps-2">
-                            <h6 class="text-dark text-opacity-50 ">ISBN : @Model.ISBN</h6>
+                            <h6 class="text-dark">ISBN : @Model.ISBN</h6>
                         </div>
                         <div class="row ps-2">
-                            <h6 class="text-dark text-opacity-50  pb-2">
+                            @if(Model.CoverType != null)
+                            {
+                                <h6 class="text-dark">Cover type : @Model.CoverType.Name</h6>
+                            }
+                            else
+                            {
+                                <h6 class="text-dark">Cover type : <span class="text-opacity-50">Unknown</span></h6>
+                            }
+                        </div>
+                        <div class="row ps-2">
+                            <h6 class="text-dark pb-2">
                                 List Price:
                                 <span class="text-decoration-line-through">
                                     @Model.ListPrice.ToString("c")

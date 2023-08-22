@@ -42,6 +42,13 @@
 							<span asp-validation-for="Product.CategoryId" class="text-danger"></span>
 						</div>
 						<div class="form-floating py-2 col-12">
+							<select asp-for=Product.CoverTypeId asp-items="@Model.CoverTypeList" class="form-control border-0 shadow-sm" placeholder="CoverTypeId">
+								<option disabled selected>-- Select Cover Type --</option>
+							</select>
+							<label asp-for=Product.CoverTypeId class="ms-2"></label>
+							<span asp-validation-for="Product.CoverTypeId" class="text-danger"></span>
+						</div>
+						<div class="form-floating py-2 col-12">
 							<input type="file" name="file" asp-for=Product.ImageUrl class="form-control border-0 shadow-sm" placeholder="Image URL" />
 							<label asp-for=Product.ImageUrl class="ms-2"></label>
 						</div>

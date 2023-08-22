@@ -1,4 +1,6 @@
-﻿using BulkyBook.DataAccess.Repository.IRepository;
+﻿// Ignore Spelling: Upsert
+
+using BulkyBook.DataAccess.Repository.IRepository;
 using BulkyBook.Models;
 using BulkyBook.Models.ViewModels;
 using BulkyBook.Utility;
@@ -25,7 +27,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
 
 		public IActionResult Index()
 		{
-			IEnumerable<Product> ProductList = _unitOfWork.ProductRepository.GetAll(includeProperties:"Category");
+			IEnumerable<Product> ProductList = _unitOfWork.ProductRepository.GetAll(includeProperties: "Category,CoverType");
 			return View(ProductList);
 		}
 		
@@ -38,6 +40,11 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
 				{
 					Text = c.Name,
 					Value = c.Id.ToString(),
+				}),
+				CoverTypeList = _unitOfWork.CoverTypeRepository.GetAll().Select(ct => new SelectListItem
+				{
+					Text = ct.Name,
+					Value = ct.Id.ToString(),
 				}),
 			};
 			if (id == null || id == 0)
@@ -98,6 +105,11 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
 					Text = c.Name,
 					Value = c.Id.ToString(),
 				});
+				productVM.CoverTypeList = _unitOfWork.CoverTypeRepository.GetAll().Select(ct => new SelectListItem
+				{
+					Text = ct.Name,
+					Value = ct.Id.ToString(),
+				});
 				return View(productVM);
 			}
 		}
@@ -106,7 +118,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
 		[HttpGet]
 		public IActionResult GetAll()
 		{
-			IEnumerable<Product> ProductList = _unitOfWork.ProductRepository.GetAll(includeProperties: "Category");
+			IEnumerable<Product> ProductList = _unitOfWork.ProductRepository.GetAll(includeProperties: "Category,CoverType");
 			return Json( new { products = ProductList } );
 		}
 

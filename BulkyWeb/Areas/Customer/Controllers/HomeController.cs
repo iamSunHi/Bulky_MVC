@@ -19,13 +19,13 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
 
         public IActionResult Index()
         {
-            IEnumerable<Product> productList = _unitOfWork.ProductRepository.GetAll(includeProperties:"Category");
+            IEnumerable<Product> productList = _unitOfWork.ProductRepository.GetAll(includeProperties:"Category,CoverType");
             return View(productList);
         }
 
 		public IActionResult Details(int id)
 		{
-			Product product = _unitOfWork.ProductRepository.Get(p => p.Id == id, includeProperties: "Category");
+			Product product = _unitOfWork.ProductRepository.Get(p => p.Id == id, includeProperties: "Category,CoverType");
 			return View(product);
 		}
 
