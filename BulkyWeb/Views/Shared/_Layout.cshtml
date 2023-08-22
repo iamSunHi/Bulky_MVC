@@ -42,15 +42,16 @@
                                     <li class="">
                                         <a class="dropdown-item" asp-area="Admin" asp-controller="Product" asp-action="Index">Product</a>
                                     </li>
+                                    <li><hr class="dropdown-divider"></hr></li>
                                     <li class="">
                                         <a class="dropdown-item" asp-area="Admin" asp-controller="Company" asp-action="Index">Company</a>
                                     </li>
                                     <li><hr class="dropdown-divider"></hr></li>
                                     <li class="">
-                                        <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Create User</a>
+                                        <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Register">Create User</a>
                                     </li>
                                     <li class="">
-                                        <a class="dropdown-item" asp-area="Admin" asp-controller="Product" asp-action="Index">Manage User</a>
+                                        <a class="dropdown-item" asp-area="Admin" asp-controller="User" asp-action="Index">Manage User</a>
                                     </li>
                                 </ul>
                             </li>
