@@ -6,7 +6,9 @@ namespace BulkyBook.DataAccess.Repository
     public class UnitOfWork : IUnitOfWork
 	{
 		private readonly ApplicationDbContext _context;
-		public ICategoryRepository CategoryRepository { get; private set; }
+
+		public IApplicationUserRepository ApplicationUserRepository { get; private set; }
+        public ICategoryRepository CategoryRepository { get; private set; }
 		public ICoverTypeRepository CoverTypeRepository { get; private set; }
 		public IProductRepository ProductRepository { get; private set; }
 		public ICompanyRepository CompanyRepository { get; private set; }
@@ -14,6 +16,7 @@ namespace BulkyBook.DataAccess.Repository
 		public UnitOfWork(ApplicationDbContext context)
 		{
 			_context = context;
+			ApplicationUserRepository = new ApplicationUserRepository(context);
 			CategoryRepository = new CategoryRepository(context);
 			CoverTypeRepository = new CoverTypeRepository(context);
 			ProductRepository = new ProductRepository(context);
