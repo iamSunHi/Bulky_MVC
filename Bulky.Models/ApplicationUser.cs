@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BulkyBook.Models
 {
@@ -14,5 +15,8 @@ namespace BulkyBook.Models
         public int? CompanyId { get; set; }
         [ValidateNever]
         public Company? Company { get; set; }
-    }
+
+		[NotMapped]
+		public string Role { get; set; } = null!;
+	}
 }
