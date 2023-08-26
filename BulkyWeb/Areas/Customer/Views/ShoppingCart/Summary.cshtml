@@ -1,7 +1,6 @@
 ﻿@model BulkyBook.Models.ViewModels.ShoppingCartVM
 
-<form method="post">
-	<br />
+<form class="pt-2" method="post">
 	<div class="container">
 		<div class="card">
 			<div class="card-header bg-dark text-light ml-0">
@@ -26,79 +25,93 @@
 							</div>
 							<div class="row my-1">
 								<div class="col-3">
-									<label>Name</label>
+									<label>Name:</label>
 								</div>
 								<div class="col-9">
-									<input class="form-control" />
-									<span class="text-danger"></span>
+									<input asp-for="OrderHeader.Name" class="form-control" />
+									<span asp-validation-for="OrderHeader.Name" class="text-danger"></span>
 								</div>
 							</div>
 							<div class="row my-1">
 								<div class="col-3">
-									<label>Phone</label>
+									<label>Phone:</label>
 								</div>
 								<div class="col-9">
-									<input class="form-control" />
-									<span class="text-danger"></span>
+									<input asp-for="OrderHeader.PhoneNumber" class="form-control" />
+									<span asp-validation-for="OrderHeader.PhoneNumber" class="text-danger"></span>
 								</div>
 							</div>
 							<div class="row my-1">
 								<div class="col-3">
-									<label>Street Address</label>
+									<label>Address:</label>
 								</div>
 								<div class="col-9">
-									<input class="form-control" />
-									<span class="text-danger"></span>
+									<input asp-for="OrderHeader.Address" class="form-control" />
+									<span asp-validation-for="OrderHeader.Address" class="text-danger"></span>
 								</div>
 							</div>
 							<div class="row my-1">
 								<div class="col-3">
-									<label>City</label>
+									<label>City:</label>
 								</div>
 								<div class="col-9">
-									<input class="form-control" />
-									<span class="text-danger"></span>
+									<input asp-for="OrderHeader.City" class="form-control" />
+									<span asp-validation-for="OrderHeader.City" class="text-danger"></span>
 								</div>
 							</div>
 							<div class="row my-1">
 								<div class="col-3">
-									<label>State</label>
+									<label>State:</label>
 								</div>
 								<div class="col-9">
-									<input class="form-control" />
-									<span class="text-danger"></span>
+									<input asp-for="OrderHeader.State" class="form-control" />
+									<span asp-validation-for="OrderHeader.State" class="text-danger"></span>
 								</div>
 							</div>
 							<div class="row my-1">
 								<div class="col-3">
-									<label>Postal Code</label>
+									<label>Postal Code:</label>
 								</div>
 								<div class="col-9">
-									<input class="form-control" />
-									<span class="text-danger"></span>
+									<input asp-for="OrderHeader.PostalCode" class="form-control" />
+									<span asp-validation-for="OrderHeader.PostalCode" class="text-danger"></span>
 								</div>
 							</div>
 						</div>
-						<div class="col-12 col-lg-5 offset-lg-1">
+						<div class="col-12 col-lg-6">
 							<h4 class="d-flex justify-content-between align-items-center mb-3">
 								<span class="text-info">Order Summary:</span>
 							</h4>
-							<ul class="list-group mb-3">
+							<ul class="list-group pt-1 mb-3">
+								@foreach (var details in Model.ShoppingCartList)
+								{
+									<li class="list-group-item d-flex justify-content-between align-items-center">
+										<div>
+											<h6 class="my-0">@details.Product.Title</h6>
+											<small class="text-muted">Quantity: @details.Count</small>
+										</div>
+										<div class="text-muted">@((details.Price * details.Count).ToString("c")) </div>
+									</li>
+								}
+								<li class="list-group-item d-flex justify-content-between bg-light">
+									<small class="text-info">Total:</small>
+									<strong class="text-info">@Model.OrderHeader.OrderTotal.ToString("c")</strong>
+								</li>
 							</ul>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="card-footer">
-				<div class="row">
-					<div class="col-12 col-md-8 pt-2">
-						<p style="color:maroon; font-size:14px;">
+				<div class="row align-items-center">
+					<div class="col-12 col-md-6">
+						<p class="m-0" style="color:maroon; font-size:14px;">
 							Estimate Arrival Date:
-							@DateTime.Now.AddDays(7).ToShortDateString() - @DateTime.Now.AddDays(14).ToShortDateString()
+							@DateTime.Now.AddDays(3).ToShortDateString() - @DateTime.Now.AddDays(7).ToShortDateString()
 						</p>
 					</div>
-					<div class="col-12 col-md-4">
-						<button type="submit" value="Place Order" class="btn btn-primary form-control">Place Order</button>
+					<div class="col-12 col-md-6">
+						<button type="submit" value="Order" class="btn btn-outline-primary form-control">Place Order</button>
 					</div>
 				</div>
 			</div>
