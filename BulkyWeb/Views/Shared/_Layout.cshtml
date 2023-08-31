@@ -50,12 +50,21 @@
                                     </li>
                                     <li><hr class="dropdown-divider"></hr></li>
                                     <li class="">
+                                        <a class="dropdown-item" asp-area="Admin" asp-controller="Order" asp-action="Index">Manage Order</a>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></hr></li>
+                                    <li class="">
                                         <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Register">Create User</a>
                                     </li>
                                     <li class="">
                                         <a class="dropdown-item" asp-area="Admin" asp-controller="User" asp-action="Index">Manage User</a>
                                     </li>
                                 </ul>
+                            </li>
+                        } else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link py-3" asp-area="Admin" asp-controller="Order" asp-action="Index">Manage Order</a>
                             </li>
                         }
                         <li id="shopping-cart" class="nav-item">
@@ -70,7 +79,7 @@
         </nav>
     </header>
     <div class="container">
-        <main role="main" class="pb-3" style="margin-top: 60px;">
+        <main role="main" class="pb-3 pt-5">
             <partial name="_Notification" />
             @RenderBody()
         </main>
