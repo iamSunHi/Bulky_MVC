@@ -1,16 +1,16 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
@@ -25,4 +25,33 @@ body {
     border-top: 1px solid #555;
     margin: auto .25rem;
     box-shadow: 0 -2px;
+}
+
+.shopping-cart {
+    position: relative;
+}
+
+    .shopping-cart a {
+        padding-top: 13px;
+        padding-bottom: 13px;
+    }
+
+    .shopping-cart i {
+        font-size: 24px;
+    }
+
+
+.shopping-cart__count {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #a8a8a6;
+    border: 2px solid #3e3f3a;
+    border-radius: 50%;
+    width: 20px;
+    line-height: 16px;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+.shopping-cart a:hover .shopping-cart__count {
+    background-color: #cecfcd;
 }
