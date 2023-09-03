@@ -58,11 +58,13 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
             if (cartFromDb == null)
             {
                 _unitOfWork.ShoppingCartRepository.Add(shoppingCart);
+                TempData["success"] = "Product added successfully!";
             }
             else
             {
                 cartFromDb.Count += shoppingCart.Count;
                 _unitOfWork.ShoppingCartRepository.Update(cartFromDb);
+                TempData["success"] = "Product added successfully!";
             }
             _unitOfWork.Save();
 
