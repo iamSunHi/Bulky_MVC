@@ -1,0 +1,24 @@
+﻿@model int
+
+<li class="shopping-cart d-none d-md-block position-relative" class="nav-item">
+	<a class="nav-link" asp-area="Customer" asp-controller="ShoppingCart" asp-action="Index">
+		<i class="fa-solid fa-cart-shopping"></i>
+		@if (Model != 0)
+		{
+			<div class="shopping-cart__count text-dark text-center position-absolute">
+				@Model
+			</div>
+		}
+	</a>
+</li>
+<li class="shopping-cart d-md-none" class="nav-item">
+	<a class="nav-link d-flex align-items-center justify-content-between" asp-area="Customer" asp-controller="ShoppingCart" asp-action="Index">
+		<span>Your Cart</span>
+		@if (Model != 0)
+		{
+			<div class="shopping-cart__count text-dark text-center">
+				@Model
+			</div>
+		}
+	</a>
+</li>

@@ -74,17 +74,7 @@
                         }
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <li class="shopping-cart" class="nav-item">
-                                <a class="nav-link" asp-area="Customer" asp-controller="ShoppingCart" asp-action="Index">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                    @if (IHttpContextAccessor.HttpContext.Session.GetInt32(StaticDetails.SessionCart) != 0)
-                                    {
-                                        <div class="shopping-cart__count text-dark text-center">
-                                            @IHttpContextAccessor.HttpContext.Session.GetInt32(StaticDetails.SessionCart)
-                                        </div>
-                                    }
-                                </a>
-                            </li>
+                            @await Component.InvokeAsync("ShoppingCart")
                         }
                     </ul>
                     <partial name="_LoginPartial" />
@@ -93,7 +83,7 @@
         </nav>
     </header>
     <div class="container">
-        <main role="main" class="pb-3 pt-5">
+        <main role="main" class="pb-3" style="padding-top: 4rem;">
             <partial name="_Notification" />
             @RenderBody()
         </main>

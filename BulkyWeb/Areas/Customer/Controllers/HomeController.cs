@@ -25,14 +25,6 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
         {
             IEnumerable<Product> productList = _unitOfWork.ProductRepository.GetAll(includeProperties:"Category,CoverType");
 
-            if (User.Identity.IsAuthenticated)
-            {
-                var claimIdentity = (ClaimsIdentity)User.Identity;
-                var userId = claimIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
-                HttpContext.Session.SetInt32(StaticDetails.SessionCart,
-                    _unitOfWork.ShoppingCartRepository.GetAll(s => s.ApplicationUserId == userId).Count());
-            }
-
             return View(productList);
         }
 

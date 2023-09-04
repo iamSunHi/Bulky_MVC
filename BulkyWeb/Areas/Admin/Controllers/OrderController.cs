@@ -26,10 +26,21 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            var claimIdentity = (ClaimsIdentity)User.Identity;
-            var userId = claimIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
-            HttpContext.Session.SetInt32(StaticDetails.SessionCart,
-                _unitOfWork.ShoppingCartRepository.GetAll(s => s.ApplicationUserId == userId).Count());
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+
+            if (claim != null)
+            {
+                if (HttpContext.Session.GetInt32(StaticDetails.SessionCart) == null)
+                {
+                    HttpContext.Session.SetInt32(StaticDetails.SessionCart,
+                        _unitOfWork.ShoppingCartRepository.GetAll(s => s.ApplicationUserId == claim.Value).Count());
+                }
+            }
+            else
+            {
+                HttpContext.Session.Clear();
+            }
             return View();
         }
 

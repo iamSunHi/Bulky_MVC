@@ -27,22 +27,17 @@ body {
     box-shadow: 0 -2px;
 }
 
-.shopping-cart {
-    position: relative;
+.shopping-cart a {
+    padding-top: 13px;
+    padding-bottom: 13px;
 }
 
-    .shopping-cart a {
-        padding-top: 13px;
-        padding-bottom: 13px;
-    }
-
-    .shopping-cart i {
-        font-size: 24px;
-    }
+.shopping-cart i {
+    font-size: 24px;
+}
 
 
 .shopping-cart__count {
-    position: absolute;
     top: 0;
     right: 0;
     background-color: #a8a8a6;
@@ -52,6 +47,7 @@ body {
     line-height: 16px;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
 }
+
 .shopping-cart a:hover .shopping-cart__count {
     background-color: #cecfcd;
 }
