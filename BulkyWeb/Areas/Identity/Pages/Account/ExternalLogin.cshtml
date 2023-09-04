@@ -23,6 +23,36 @@
                 <label asp-for="Input.Email" class="form-label"></label>
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
+            <div class="form-floating mb-3 col-md-12">
+                <input asp-for="Input.Name" class="form-control" placeholder="Nhat Huy" />
+                <label asp-for="Input.Name" class="ms-2 text-muted">Full Name</label>
+                <span asp-validation-for="Input.Name" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3 col-md-12">
+                <input asp-for="Input.PhoneNumber" class="form-control" placeholder="0123456789" />
+                <label asp-for="Input.PhoneNumber" class="ms-2 text-muted"></label>
+                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3 col-md-6">
+                <input asp-for="Input.Address" class="form-control" placeholder="Da Nang, Vietnam" />
+                <label asp-for="Input.Address" class="ms-2 text-muted"></label>
+                <span asp-validation-for="Input.Address" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3 col-md-6">
+                <input asp-for="Input.City" class="form-control" placeholder="Da Nang" />
+                <label asp-for="Input.City" class="ms-2 text-muted"></label>
+                <span asp-validation-for="Input.City" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3 col-md-6">
+                <input asp-for="Input.State" class="form-control" placeholder="Vietnam" />
+                <label asp-for="Input.State" class="ms-2 text-muted"></label>
+                <span asp-validation-for="Input.State" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3 col-md-6">
+                <input asp-for="Input.PostalCode" class="form-control" placeholder="550000" />
+                <label asp-for="Input.PostalCode" class="ms-2 text-muted"></label>
+                <span asp-validation-for="Input.PostalCode" class="text-danger"></span>
+            </div>
             <button type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
         </form>
     </div>
