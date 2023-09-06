@@ -25,6 +25,20 @@ namespace BulkyBook.DataAccess.Data
         {
 			base.OnModelCreating(modelBuilder);
 
+			modelBuilder.Entity<CoverType>().HasData(
+				new CoverType { Id = 1, Name = "Hardcover" },
+				new CoverType { Id = 2, Name = "Paperback" },
+				new CoverType { Id = 3, Name = "Leatherbound" },
+				new CoverType { Id = 4, Name = "Spiral-bound" },
+				new CoverType { Id = 5, Name = "Dust Jacket" },
+				new CoverType { Id = 6, Name = "Flexibound" },
+				new CoverType { Id = 7, Name = "Casebound" },
+				new CoverType { Id = 8, Name = "Board Book" },
+				new CoverType { Id = 9, Name = "Cloth-bound" },
+				new CoverType { Id = 10, Name = "Matte Finish" },
+				new CoverType { Id = 11, Name = "Glossy Finish" }
+			);
+
             modelBuilder.Entity<Category>().HasData(
                 new Category { Id = 1, Name = "Action", DisplayOrder = 1 },
                 new Category { Id = 2, Name = "SciFi", DisplayOrder = 2 },

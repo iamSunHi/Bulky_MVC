@@ -22,7 +22,25 @@ namespace BulkyBook.DataAccess.Migrations
                 {
                     table.PrimaryKey("PK_CoverTypes", x => x.Id);
                 });
-        }
+
+			migrationBuilder.InsertData(
+				table: "CoverTypes",
+				columns: new[] { "Id", "Name" },
+				values: new object[,]
+				{
+					{ 1, "Hardcover" },
+                    { 2, "Paperback" },
+                    { 3, "Leatherbound" },
+                    { 4, "Spiral-bound" },
+                    { 5, "Dust Jacket" },
+                    { 6, "Flexibound" },
+                    { 7, "Casebound" },
+                    { 8, "Board Book" },
+                    { 9, "Cloth-bound" },
+                    { 10, "Matte Finish" },
+                    { 11, "Glossy Finish" }
+				});
+		}
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)

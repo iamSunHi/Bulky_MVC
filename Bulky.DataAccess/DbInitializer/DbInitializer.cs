@@ -43,23 +43,22 @@ namespace BulkyBook.DataAccess.DbInitializer
                 _roleManager.CreateAsync(new IdentityRole(StaticDetails.Role_Company)).GetAwaiter().GetResult();
                 _roleManager.CreateAsync(new IdentityRole(StaticDetails.Role_Admin)).GetAwaiter().GetResult();
                 _roleManager.CreateAsync(new IdentityRole(StaticDetails.Role_Employee)).GetAwaiter().GetResult();
+                // if roles are not created, then we will create admin user as well
+                _userManager.CreateAsync(new ApplicationUser
+                {
+                    UserName = "doan.nhathuy.03@gmail.com",
+                    Email = "doan.nhathuy.03@gmail.com",
+                    Name = "Doan Dinh Nhat Huy",
+                    PhoneNumber = "0705909123",
+                    Address = "Thanh Khe",
+                    City = "Da Nang",
+                    State = "VN",
+                    PostalCode = "550000",
+                }, "Bo_29102003").GetAwaiter().GetResult();
+
+                ApplicationUser user = _context.ApplicationUsers.FirstOrDefault(u => u.Email == "doan.nhathuy.03@gmail.com");
+                _userManager.AddToRoleAsync(user, StaticDetails.Role_Admin).GetAwaiter().GetResult();
             }
-
-            // if roles are not created, then we will create admin user as well
-            _userManager.CreateAsync(new ApplicationUser
-            {
-                UserName = "doan.nhathuy.03@gmail.com",
-                Email = "doan.nhathuy.03@gmail.com",
-                Name = "Doan Dinh Nhat Huy",
-                PhoneNumber = "0705909123",
-                Address = "Thanh Khe",
-                City = "Da Nang",
-                State = "VN",
-                PostalCode = "550000",
-            }, "Bo_29102003").GetAwaiter().GetResult();
-
-            ApplicationUser user = _context.ApplicationUsers.FirstOrDefault(u => u.Email == "doan.nhathuy.03@gmail.com");
-            _userManager.AddToRoleAsync(user, StaticDetails.Role_Admin).GetAwaiter().GetResult();
 
             return;
         }
