@@ -62,7 +62,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
 			orderVM.OrderDetail = _unitOfWork.OrderDetailRepository.GetAll(u => u.OrderHeaderId == orderVM.OrderHeader.Id, includeProperties: "Product");
 
 			//stripe settings 
-			var domain = "https://" + HttpContext.Request.Host.Value + "/";
+			var domain = Request.Scheme + "://" + Request.Host.Value + "/";
 			var options = new SessionCreateOptions
 			{
 				PaymentMethodTypes = new List<string>

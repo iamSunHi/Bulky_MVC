@@ -121,7 +121,7 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
             {
                 // This is a regular customer account and we need to capture payment
                 // stripe settings 
-                var domain = "https://" + HttpContext.Request.Host.Value + "/";
+                var domain = Request.Scheme + "://" + Request.Host.Value + "/";
                 var options = new SessionCreateOptions
                 {
                     SuccessUrl = domain + $"Customer/ShoppingCart/OrderConfirmation?id={ShoppingCartVM.OrderHeader.Id}",
